@@ -26,5 +26,10 @@ namespace DemoAlgoSorter
         {
 
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
