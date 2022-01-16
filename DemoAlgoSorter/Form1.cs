@@ -48,5 +48,13 @@ namespace DemoAlgoSorter
                 g.FillRectangle(new System.Drawing.SolidBrush(System.Drawing.Color.MediumSpringGreen), i, MaxVal - TheArray[i], 1, MaxVal);
             }
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            // dwn"implementation of a class has been instantiated here"
+            ISortEngine se = new SortEngineBubble();
+            se.DoWork(TheArray, g, panel1.Height);
+        }
+        // "if evrythin runnin on same thread, rest of app locked up, can't do async actions; problem, should run SortEngine on diffrnt thread, then UI responsive, whle wrk goin on in bckgrd (app can async, have more than 1 task simultaneously)"
     }
 }
