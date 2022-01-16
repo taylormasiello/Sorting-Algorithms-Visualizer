@@ -57,6 +57,32 @@ namespace DemoAlgoSorter
             ////se.DoWork(TheArray, g, panel1.Height);
         }
 
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if (!Paused)
+            {
+                // dwn"sends signal to cancel bgw, SortEngine"
+                bgw.CancelAsync();
+                Paused = true;
+            }
+            else
+            {
+                // dwn"reminds of variables; chngs state of Paused flag"
+                int NumEntries = panel1.Width;
+                int MaxVal = panel1.Height;
+                Paused = false;
+                for (int i = 0; i < NumEntries; i++)
+                {
+                    g.FillRectangle(new System.Drawing.SolidBrush(System.Drawing.Color.DarkBlue), i, 0, 1, MaxVal);
+                    g.FillRectangle(new System.Drawing.SolidBrush(System.Drawing.Color.MediumSpringGreen), i, MaxVal - TheArray[i], 1, MaxVal);
+                }
+                // ^"fills in display to auto-refresh view; in case display disrupted somehow, this will refresh before we go on"
+                bgw.RunWorkerAsync(argument: comboBox1.SelectedItem);
+                // ^"(supposedly) not actually resuming bgw, but creating a new one; consumes more memory than resuming would, so likely creating new one; will pick up where SortEngine left off (thus resuming partially sorted list); every sortingAlgo will NOT be able to be paused/resumed in this way, depends on the algo (some are not interruptible)"
+
+            }
+        }
+
         ////private void label1_Click(object sender, EventArgs e)
         ////{
         ////}

@@ -37,6 +37,7 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnStart = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +81,6 @@
             this.label1.Size = new System.Drawing.Size(61, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Algorithm";
-            ////this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox1
             // 
@@ -102,8 +102,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.WindowText;
             this.panel1.Location = new System.Drawing.Point(19, 76);
@@ -121,11 +121,22 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
+            // btnPause
+            // 
+            this.btnPause.Location = new System.Drawing.Point(551, 37);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(137, 23);
+            this.btnPause.TabIndex = 6;
+            this.btnPause.Text = "Pause  / Resume";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
             // AlgoSorter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 521);
+            this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnReset);
@@ -153,5 +164,6 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnPause;
     }
 }
