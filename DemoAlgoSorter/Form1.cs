@@ -136,7 +136,10 @@ namespace DemoAlgoSorter
             }
             catch (Exception ex)
             {
+                throw new Exception(ex.ToString());
             }
+
+            //"investigate ManualResetEvent if you want to truly pause/resume work, instead of creating a new SortEngine each time resuem is clicked"
         }
 
         #endregion
