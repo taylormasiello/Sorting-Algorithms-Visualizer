@@ -46,6 +46,8 @@ namespace DemoAlgoSorter
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            if (TheArray == null) btnReset_Click(null, null);
+            //^fixes exception if you click Start before reset button; auto-invokes reset if you click start instead
             bgw = new BackgroundWorker();
             bgw.WorkerSupportsCancellation = true;
             bgw.DoWork += new DoWorkEventHandler(bgw_DoWork);
@@ -67,6 +69,8 @@ namespace DemoAlgoSorter
             }
             else
             {
+                if (bgw.IsBusy) return;
+                //^pause/resume rapid quick too fast for bgw; this will ignore clicks if bgw running
                 // dwn"reminds of variables; chngs state of Paused flag"
                 int NumEntries = panel1.Width;
                 int MaxVal = panel1.Height;
